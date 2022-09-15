@@ -26,10 +26,6 @@ const Cart = (props) => {
       setIsCheckout(true);
   }
 
-  const checkoutCancelHandler = () => {
-      setIsCheckout(false)
-  }
-
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartCtx.items.map((item) => (
@@ -60,7 +56,7 @@ const Cart = (props) => {
         <span>{totalAmount}</span>
       </div>
         {!isCheckout && modalActions}
-        {isCheckout && <Checkout onCancel={checkoutCancelHandler}/>}
+        {isCheckout && <Checkout onCancel={props.onHideCart}/>}
     </Modal>
   );
 };
